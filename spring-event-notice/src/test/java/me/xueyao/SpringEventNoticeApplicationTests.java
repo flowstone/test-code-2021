@@ -18,8 +18,10 @@ class SpringEventNoticeApplicationTests {
     private SmsEventPublish smsEventPublish;
 
     @Test
-    public void testSmsEvent() {
+    public void testSmsEvent() throws InterruptedException {
         smsEventPublish.publish("今天天气真好");
+        log.info("这应该是先输出的记录，{}", System.currentTimeMillis());
+        Thread.sleep(5000);
     }
 
 }

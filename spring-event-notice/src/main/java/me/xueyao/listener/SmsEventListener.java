@@ -1,5 +1,6 @@
 package me.xueyao.listener;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import me.xueyao.event.SmsEvent;
 import org.springframework.context.ApplicationListener;
@@ -13,8 +14,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class SmsEventListener implements ApplicationListener<SmsEvent> {
+    @SneakyThrows
     @Override
     public void onApplicationEvent(SmsEvent smsEvent) {
+        Thread.sleep(5000);
         log.info("发送短信的内容是 = {}", smsEvent.getMessage());
     }
 }
